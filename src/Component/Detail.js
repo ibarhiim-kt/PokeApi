@@ -5,6 +5,8 @@ import {useParams} from "react-router-dom";
 export default function Detail (){
         const {slug} = useParams();
         const[pokiDetail,setPokiDetail] = useState(null);
+        const [evolutionChain, setEvolutionChain] = useState([]);
+        // const [loading, setLoading] = useState(true);
 
         useEffect(() => {
             Axios.get(`https://pokeapi.co/api/v2/pokemon/${slug}`).then((response) => {

@@ -62,7 +62,7 @@ export default function Home() {
   const handleFilterChange = async (event) => {
     const text = event.target.value;
     setFilterText(text);
-    if (text === "") {
+    if (text === "") {        
       setFilteredPokemonList(allPokemon);
     } else {
       const filtered = allPokemon.filter((pokemon) =>
@@ -80,7 +80,7 @@ export default function Home() {
   }, [allPokemon, filterText]);
 
   return (
-    <div className="bg-[pink]">
+    <div className="bg-[pink] h-[100%]">
       <div className="bg-[#EF5350]">
         <div className="max-w-[1280px] m-[auto] max-1050px:max-w-[900px] max-1050px:px-[10px] max-800px:max-w-[700px] max-550px:max-w-[350px]">
           <div className="py-[30px] pl-[15px] max-w-[180px] max-550px:pl-[10px]">
