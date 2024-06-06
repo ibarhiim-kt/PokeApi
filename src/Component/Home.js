@@ -3,6 +3,7 @@ import axios from "axios";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
+import {ClipLoader} from "react-spinners";
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -10,7 +11,8 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [filteredPokemonList, setFilteredPokemonList] = useState([]);
   const [filterText, setFilterText] = useState("");
-  const[galleryDisplay,setGalleryDisplay] = useState(true);  
+  const[galleryDisplay,setGalleryDisplay] = useState(true);
+  const[loader,setLoader] = useState(false);
   const limit = 20;
 
   // Fetch all Pokémon names and URLs
@@ -36,13 +38,16 @@ export default function Home() {
   }, []);
 
   const fetchPokemonList = async (page) => {
+    setLoader(true);
     const offset = (page - 1) * limit;
     try {
       const pokemonSubset = filteredPokemonList.slice(offset, offset + limit);
       const pokemonDetails = await fetchPokemonDetails(pokemonSubset);
       setPokemonList(pokemonDetails);
+      setLoader(false);
     } catch (error) {
       console.error("Error fetching the Pokémon:", error);
+      setLoader(false);
     }
   };
 
@@ -75,7 +80,7 @@ export default function Home() {
   }, [allPokemon, filterText]);
 
   return (
-    <div className="bg-[pink] h-[300vh]">
+    <div className="bg-[pink]">
       <div className="bg-[#EF5350]">
         <div className="max-w-[1280px] m-[auto] max-1050px:max-w-[900px] max-1050px:px-[10px] max-800px:max-w-[700px] max-550px:max-w-[350px]">
           <div className="py-[30px] pl-[15px] max-w-[180px] max-550px:pl-[10px]">
@@ -97,7 +102,11 @@ export default function Home() {
         </div>
       </div>
       <div>
-        {galleryDisplay && (
+      {loader ? ( 
+          <div className="flex justify-center items-center h-screen">
+            <ClipLoader size={50} color={"#EF5350"} loading={loader}/>
+          </div>
+        ) : (
           <>
             <div
               className="grid grid-cols-4 m-[auto] mt-[50px] justify-items-center max-w-[1280px]

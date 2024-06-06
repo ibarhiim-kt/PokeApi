@@ -16,6 +16,7 @@ export default function Detail (){
                 attack: response.data.stats[1].base_stat,
                 defense: response.data.stats[2].base_stat,
                 types: response.data.types[0].type.name,
+                speed: response.data.stats[5].base_stat,
               });
             });
           }, [slug]);
@@ -31,13 +32,14 @@ export default function Detail (){
                 <div className="bg-[#ef535072] w-[400px] rounded-[30%] border-[2px]  border-[#EF5350] max-1050px:w-[300px] max-800px:w-[240px] max-550px:mb-[50px]">             
                 <img src={pokiDetail.img} className="w-[100%] h-[100%] "/>
                 </div>
-                <div className="w-[400px] py-[87px] rounded-[30%] flex flex-col items-center justify-center border-[#EF5350] border-[2px] 
-                bg-[#ef535072] max-1050px:w-[300px] max-1050px:py-[37px] max-800px:w-[240px] max-800px:py-[44px]">
+                <div className="w-[400px] py-[64px] rounded-[30%] flex flex-col items-center justify-center border-[#EF5350] border-[2px] 
+                bg-[#ef535072] max-1050px:w-[300px] max-1050px:py-[14px] max-800px:w-[240px] max-800px:py-[28px]">
                 <h1 className="text-[30px] max-800px:text-[20px]"><span className="font-semibold">Name:</span> {pokiDetail.name}</h1>
                 <h1 className="text-[30px] max-800px:text-[20px]"><span className="font-semibold">Type:</span> {pokiDetail.types}</h1>                
                 <h1 className="text-[30px] max-800px:text-[20px]"><span className="font-semibold">Attack:</span> {pokiDetail.attack}</h1>
                 <h1 className="text-[30px] max-800px:text-[20px]"><span className="font-semibold">Defense:</span> {pokiDetail.defense}</h1> 
-                <h1 className="text-[30px] max-800px:text-[20px] max-550px:text-[18px]"><span className="font-semibold">hp:</span> {pokiDetail.hp}</h1>     
+                <h1 className="text-[30px] max-800px:text-[20px] max-550px:text-[18px]"><span className="font-semibold">hp:</span> {pokiDetail.hp}</h1>  
+                <h1 className="text-[30px] max-800px:text-[20px] max-550px:text-[18px]"><span className="font-semibold">Speed:</span> {pokiDetail.speed}</h1>   
                 </div>          
         </div>
         </div>
