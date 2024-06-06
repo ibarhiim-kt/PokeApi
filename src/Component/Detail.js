@@ -22,8 +22,9 @@ export default function Detail (){
         if (!pokiDetail) return <div>Loading...</div>;
     
     return(
-        
-        <div className="max-w-[1280px] m-[auto] h-[100vh] flex justify-center bg-[pink] 
+
+        <div className="bg-[pink] ">
+        <div className="max-w-[1280px] m-[auto] h-[100vh] flex justify-center 
         max-1050px:max-w-[900px] max-800px:max-w-[700px] max-550px:max-w-350px">
         <div className="w-[90%] flex items-center justify-evenly max-550px:flex-col *:
         max-550px:justify-center">
@@ -38,6 +39,7 @@ export default function Detail (){
                 <h1 className="text-[30px] max-800px:text-[20px]"><span className="font-semibold">Defense:</span> {pokiDetail.defense}</h1> 
                 <h1 className="text-[30px] max-800px:text-[20px] max-550px:text-[18px]"><span className="font-semibold">hp:</span> {pokiDetail.hp}</h1>     
                 </div>          
+        </div>
         </div>
         </div>
     )
